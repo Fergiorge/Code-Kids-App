@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Kids Adventure Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-animation" aria-hidden="true">
+      <div class="orb orb--one"></div>
+      <div class="orb orb--two"></div>
+      <div class="orb orb--three"></div>
+    </div>
+    <main class="app" role="main">
+      <header class="app__header">
+        <div class="app__title-group">
+          <h1 class="app__title">Code Kids Adventure Lab</h1>
+          <p class="app__subtitle">
+            Explore the world of coding by mastering sequencing, events & conditions, and looping through playful quests.
+          </p>
+        </div>
+        <div class="app__controls">
+          <button id="sound-toggle" class="pill-button" aria-pressed="true">
+            🔊 Sound On
+          </button>
+          <div class="progress" role="meter" aria-label="Overall progress">
+            <div id="progress-fill" class="progress__fill"></div>
+          </div>
+          <span id="progress-label" class="progress__label">0 / 60 quests</span>
+        </div>
+      </header>
+
+      <section class="status-bar" aria-live="polite">
+        <div>
+          <h2 id="module-label" class="status-bar__title">Sequencing Lab</h2>
+          <p id="exercise-count" class="status-bar__subtitle">Quest 1 of 20</p>
+        </div>
+        <div class="score-panel" aria-label="Score board">
+          <div class="score-panel__item">
+            <span class="score-panel__label">Streak</span>
+            <span id="streak-count" class="score-panel__value">0</span>
+          </div>
+          <div class="score-panel__item">
+            <span class="score-panel__label">Crystals</span>
+            <span id="score-count" class="score-panel__value">0</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="quest-card" aria-live="polite">
+        <div class="quest-card__media">
+          <img id="quest-image" src="" alt="" />
+        </div>
+        <div class="quest-card__body">
+          <h3 id="quest-title" class="quest-card__title"></h3>
+          <p id="quest-prompt" class="quest-card__prompt"></p>
+          <p id="quest-instruction" class="quest-card__instruction"></p>
+          <div id="interaction-zone" class="interaction-zone"></div>
+          <div id="hint-text" class="quest-card__hint"></div>
+        </div>
+      </section>
+
+      <section class="actions" aria-label="Quest actions">
+        <button id="prev-button" class="primary-button" type="button">⬅️ Previous</button>
+        <button id="reset-button" class="secondary-button" type="button">🔄 Try Again</button>
+        <button id="next-button" class="primary-button" type="button">Next Quest ➡️</button>
+      </section>
+
+      <section class="timeline" aria-hidden="true">
+        <div class="timeline__track" id="timeline-track"></div>
+      </section>
+    </main>
+
+    <template id="sequence-template">
+      <div class="sequence">
+        <div class="sequence__pool" role="list" aria-label="Available steps"></div>
+        <div class="sequence__slots" role="list" aria-label="Arrange the steps in order"></div>
+      </div>
+    </template>
+
+    <template id="choice-template">
+      <div class="choices" role="list"></div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
